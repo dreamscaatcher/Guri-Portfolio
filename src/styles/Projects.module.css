@@ -1,0 +1,41 @@
+/* src/styles/Projects.module.css */
+.projects {
+    padding: 2rem;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  .projects h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .projectList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .project {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+  }
+  
+  .project h3 {
+    margin-top: 0;
+  }
+  
+  .project a {
+    color: #0070f3;
+    text-decoration: none;
+  }
+  
+  .project a:hover {
+    text-decoration: underline;
+  }
+  
