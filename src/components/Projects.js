@@ -4,16 +4,10 @@ import styles from '../styles/Projects.module.css';
 
 const projects = [
   {
-    title: 'Project One',
-    description: 'This is a brief description of project one.',
-    link: '#'
-  },
-  {
-    title: 'Project Two',
-    description: 'This is a brief description of project two.',
-    link: '#'
-  },
-  // Add more projects as needed
+    title: 'Data Analytics Project',
+    description: 'A project demonstrating data analysis techniques using Python and Pandas.',
+    link: 'https://github.com/<your-username>/data-analytics-project' // Replace with your GitHub repository link
+  }
 ];
 
 const Projects = () => {
