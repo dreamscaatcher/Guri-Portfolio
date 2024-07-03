@@ -1,8 +1,9 @@
-import { defineConfig } from 'next';
-
-export default defineConfig({
-  reactStrictMode: true,
-  experimental: {
-    appDir: true,
-  },
-});
+const nextConfig = {
+    reactStrictMode: true,
+    experimental: {
+      appDir: true,
+    },
+  };
+  
+  export default nextConfig;
+  
