@@ -15,4 +15,4 @@ steps:
       - 'service.yaml'
 options:
   logging: CLOUD_LOGGING_ONLY
-logsBucket: gs://your-logs-bucket
+
