@@ -1,4 +1,6 @@
 steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['container', 'clusters', 'get-credentials', 'my-cluster', '--zone', 'us-central1-c', '--project', 'grounded-atrium-336012']
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'gcr.io/grounded-atrium-336012/guri-portfolio:latest', '.']
   - name: 'gcr.io/cloud-builders/docker'
@@ -13,4 +15,5 @@ steps:
       - 'apply'
       - '-f'
       - 'service.yaml'
-
+options:
+  logging: CLOUD_LOGGING_ONLY  # You can also use NONE if you don't want any logging
