@@ -16,4 +16,4 @@ steps:
       - '-f'
       - 'service.yaml'
 options:
-  logging: CLOUD_LOGGING_ONLY  # You can also use NONE if you don't want any logging
+  logging: NONE  # You can also use NONE if you don't want any logging
