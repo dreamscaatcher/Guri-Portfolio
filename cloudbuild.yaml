@@ -16,4 +16,6 @@ steps:
       - '-f'
       - 'service.yaml'
 options:
-  logging: NONE  # You can also use NONE if you don't want any logging
+  logging: CLOUD_LOGGING_ONLY
+  logsBucket: gs://grounded-atrium-336012-cloudbuild-logs/
+  serviceAccount: my-cloud-build-sa@grounded-atrium-336012.iam.gserviceaccount.com
