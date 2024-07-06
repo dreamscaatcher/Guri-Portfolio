@@ -5,15 +5,14 @@ steps:
     args: ['push', 'gcr.io/grounded-atrium-336012/guri-portfolio:latest']
   - name: 'gcr.io/cloud-builders/kubectl'
     args:
-      - 'set'
-      - 'image'
-      - 'deployment/guri-portfolio-deployment'
-      - 'guri-portfolio=gcr.io/grounded-atrium-336012/guri-portfolio:latest'
+      - 'apply'
+      - '-f'
+      - 'deployment.yaml'
   - name: 'gcr.io/cloud-builders/kubectl'
     args:
-      - 'rollout'
-      - 'status'
-      - 'deployment/guri-portfolio-deployment'      
+      - 'apply'
+      - '-f'
+      - 'service.yaml'
 options:
   logging: CLOUD_LOGGING_ONLY
-
+  logsBucket: gs://your-logs-bucket
