@@ -1,11 +1,11 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/guri-portfolio:latest', '.']
+    args: ['build', '-t', 'gcr.io/grounded-atrium-336012/guri-portfolio:latest', '.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/guri-portfolio:latest']
+    args: ['push', 'gcr.io/grounded-atrium-336012/guri-portfolio:latest']
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['beta', 'run', 'deploy', 'guri-portfolio',
-           '--image', 'gcr.io/$PROJECT_ID/guri-portfolio:latest',
+           '--image', 'gcr.io/grounded-atrium-336012/guri-portfolio:latest',
            '--platform', 'managed',
            '--region', 'us-central1',
            '--allow-unauthenticated']

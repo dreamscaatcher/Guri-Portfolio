@@ -14,18 +14,6 @@ spec:
     spec:
       containers:
       - name: guri-portfolio
-        image: gcr.io/grounded-atrium-336012apiVersion: v1
-kind: Service
-metadata:
-  name: guri-portfolio-service
-spec:
-  type: LoadBalancer
-  selector:
-    app: guri-portfolio
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 3000
-/guri-portfolio:latest
+        image: gcr.io/grounded-atrium-336012/guri-portfolio:latest
         ports:
         - containerPort: 3000
