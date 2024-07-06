@@ -14,5 +14,4 @@ steps:
       - '-f'
       - 'service.yaml'
 options:
-  logging: CLOUD_LOGGING_ONLY
   logsBucket: gs://grounded-atrium-336012-cloudbuild-logs/
