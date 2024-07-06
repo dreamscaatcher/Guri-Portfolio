@@ -14,6 +14,6 @@ steps:
       - 'rollout'
       - 'status'
       - 'deployment/guri-portfolio-deployment'      
-      options:
-      logging: CLOUD_LOGGING_ONLY
+options:
+  logging: CLOUD_LOGGING_ONLY
 
