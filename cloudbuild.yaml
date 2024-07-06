@@ -3,9 +3,16 @@ steps:
     args: ['build', '-t', 'gcr.io/grounded-atrium-336012/guri-portfolio:latest', '.']
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/grounded-atrium-336012/guri-portfolio:latest']
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['beta', 'run', 'deploy', 'guri-portfolio',
-           '--image', 'gcr.io/grounded-atrium-336012/guri-portfolio:latest',
-           '--platform', 'managed',
-           '--region', 'us-central1',
-           '--allow-unauthenticated']
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args:
+      - 'apply'
+      - '-f'
+      - 'deployment.yaml'
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args:
+      - 'apply'
+      - '-f'
+      - 'service.yaml'
+options:
+  logging: CLOUD_LOGGING_ONLY
+logsBucket: gs://your-logs-bucket
