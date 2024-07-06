@@ -4,9 +4,11 @@ metadata:
   name: guri-portfolio-service
 spec:
   type: LoadBalancer
+  loadBalancerIP: 34.36.213.126
   selector:
     app: guri-portfolio
   ports:
     - protocol: TCP
       port: 80
       targetPort: 3000
+
