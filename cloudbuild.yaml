@@ -13,8 +13,7 @@ steps:
     args:
       - 'rollout'
       - 'status'
-      - 'deployment/guri-portfolio-deployment'
-      
+      - 'deployment/guri-portfolio-deployment'      
       options:
       logging: CLOUD_LOGGING_ONLY
 
