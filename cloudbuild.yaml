@@ -13,10 +13,6 @@ steps:
     gcloud container clusters get-credentials guri-cluster --zone us-central1-a --project guri-kunernetes
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
-  - 'get'
-  - 'pods'
-- name: 'gcr.io/cloud-builders/kubectl'
-  args:
   - 'set'
   - 'image'
   - 'deployment/guri-portfolio'
@@ -24,4 +20,4 @@ steps:
   - '--namespace=default'
 images:
 - 'gcr.io/guri-kunernetes/guri-portfolio:$COMMIT_SHA'
-timeout: '900s'
+timeout: '1200s'
