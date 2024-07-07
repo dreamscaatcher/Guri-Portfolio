@@ -14,20 +14,6 @@ spec:
     spec:
       containers:
       - name: guri-portfolio
-        image: gcr.io/guri-kunernetes/guri-portfolio:v1
-        imagePullPolicy: Always
+        image: gcr.io/sunday-kubernetes/guri-portfolio:v1
         ports:
-        - containerPort: 80
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: guri-portfolio-service
-spec:
-  type: LoadBalancer
-  selector:
-    app: guri-portfolio
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 3000
+        - containerPort: 3000
