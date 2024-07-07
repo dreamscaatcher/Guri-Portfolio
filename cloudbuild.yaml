@@ -24,4 +24,4 @@ steps:
   - '--namespace=default'
 images:
 - 'gcr.io/guri-kunernetes/guri-portfolio:$COMMIT_SHA'
-timeout: '1200s'
+timeout: '900s'
