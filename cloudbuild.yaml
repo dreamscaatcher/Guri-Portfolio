@@ -16,5 +16,5 @@ steps:
       - '-f'
       - 'service.yaml'
 options:
-  logging: NONE
+  logging: CLOUD_LOGGING_ONLY
   serviceAccount: my-cloud-build-sa@grounded-atrium-336012.iam.gserviceaccount.com
