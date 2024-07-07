@@ -18,6 +18,8 @@ steps:
   - 'deployment/guri-portfolio'
   - 'guri-portfolio=gcr.io/guri-kunernetes/guri-portfolio:$COMMIT_SHA'
   - '--namespace=default'
+options:
+  logging: CLOUD_LOGGING_ONLY
 images:
 - 'gcr.io/guri-kunernetes/guri-portfolio:$COMMIT_SHA'
 timeout: '1200s'
