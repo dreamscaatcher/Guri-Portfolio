@@ -12,6 +12,8 @@ steps:
     gcloud auth activate-service-account --key-file=/workspace/ci-cd-trigger-key.json
     gcloud container clusters get-credentials guri-cluster --zone us-central1-a --project guri-kunernetes
 - name: 'gcr.io/cloud-builders/kubectl'
+  env:
+  - 'KUBECTL_VERSION=1.30'
   args:
   - 'set'
   - 'image'
