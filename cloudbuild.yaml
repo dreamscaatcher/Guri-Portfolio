@@ -4,6 +4,9 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/guri-kunernetes/guri-portfolio:$COMMIT_SHA']
 - name: 'gcr.io/cloud-builders/kubectl'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=guri-cluster'
   args:
   - 'set'
   - 'image'
@@ -12,7 +15,6 @@ steps:
   - '--namespace=default'
 images:
 - 'gcr.io/guri-kunernetes/guri-portfolio:$COMMIT_SHA'
-
+timeout: '1200s'
 options:
-  logging: CLOUD_LOGGING_ONLY
-  
+  logging: 'CLOUD_LOGGING_ONLY'
