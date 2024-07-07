@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: guri-portfolio
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: guri-portfolio
+  template:
+    metadata:
+      labels:
+        app: guri-portfolio
+    spec:
+      containers:
+      - name: guri-portfolio
+        image: gcr.io/booming-primer-428707-r7/guri-portfolio:v2
+        ports:
+        - containerPort: 3000
