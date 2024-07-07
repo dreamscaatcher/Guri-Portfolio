@@ -18,7 +18,7 @@ spec:
       - name: guri-portfolio
         image: gcr.io/grounded-atrium-336012/guri-portfolio:latest
         ports:
-        - containerPort: 3000
+        - containerPort: 8080
         env:
         - name: PORT
-          value: "3000"
+          value: "8080"
