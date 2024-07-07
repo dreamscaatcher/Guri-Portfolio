@@ -1,8 +1,12 @@
 steps:
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['container', 'clusters', 'get-credentials', 'my-cluster', '--zone', 'us-central1-c', '--project', 'grounded-atrium-336012']
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        gcloud container clusters get-credentials my-cluster --zone us-central1-c --project grounded-atrium-336012
     env:
-      - 'GOOGLE_APPLICATION_CREDENTIALS=/workspace/key.json'
+      - 'CLOUDSDK_CORE_DISABLE_PROMPTS=1'
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'gcr.io/grounded-atrium-336012/guri-portfolio:latest', '.']
   - name: 'gcr.io/cloud-builders/docker'
@@ -19,4 +23,3 @@ steps:
       - 'service.yaml'
 options:
   logging: CLOUD_LOGGING_ONLY
-  # Remove the serviceAccount field from here
