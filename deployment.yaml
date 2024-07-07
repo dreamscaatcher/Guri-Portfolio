@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: guri-portfolio
+  name: guri-portfolio-deployment
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: guri-portfolio
