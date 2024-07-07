@@ -13,4 +13,6 @@ steps:
 images:
 - 'gcr.io/guri-kunernetes/guri-portfolio:$COMMIT_SHA'
 
+options:
   logging: CLOUD_LOGGING_ONLY
+  
