@@ -3,10 +3,19 @@ steps:
   args: ['build', '-t', 'gcr.io/guri-kunernetes/guri-portfolio:$COMMIT_SHA', '.']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/guri-kunernetes/guri-portfolio:$COMMIT_SHA']
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    gcloud secrets versions access latest --secret=ci-cd-trigger-key > /workspace/ci-cd-trigger-key.json
+    gcloud auth activate-service-account --key-file=/workspace/ci-cd-trigger-key.json
+    gcloud container clusters get-credentials guri-cluster --zone us-central1-a --project guri-kunernetes
 - name: 'gcr.io/cloud-builders/kubectl'
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=guri-cluster'
+  args:
+  - 'get'
+  - 'pods'
+- name: 'gcr.io/cloud-builders/kubectl'
   args:
   - 'set'
   - 'image'
@@ -16,5 +25,3 @@ steps:
 images:
 - 'gcr.io/guri-kunernetes/guri-portfolio:$COMMIT_SHA'
 timeout: '1200s'
-options:
-  logging: 'CLOUD_LOGGING_ONLY'
