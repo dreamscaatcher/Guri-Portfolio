@@ -12,14 +12,12 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/grounded-atrium-336012/guri-portfolio:latest']
   - name: 'gcr.io/cloud-builders/kubectl'
-    args:
-      - 'apply'
-      - '-f'
-      - 'deployment.yaml'
+    args: ['apply', '-f', 'deployment.yaml']
+    env:
+      - 'KUBECONFIG=/workspace/.kube/config'
   - name: 'gcr.io/cloud-builders/kubectl'
-    args:
-      - 'apply'
-      - '-f'
-      - 'service.yaml'
+    args: ['apply', '-f', 'service.yaml']
+    env:
+      - 'KUBECONFIG=/workspace/.kube/config'
 options:
   logging: CLOUD_LOGGING_ONLY
