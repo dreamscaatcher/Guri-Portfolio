@@ -4,6 +4,7 @@ metadata:
   name: guri-portfolio
   namespace: guri-namespace
 spec:
+  progressDeadlineSeconds: 600  # This sets the progress deadline to 10 minutes
   replicas: 2
   selector:
     matchLabels:
