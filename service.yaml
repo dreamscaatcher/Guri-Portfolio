@@ -1,12 +1,21 @@
-apiVersion: v1
-kind: Service
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: guri-portfolio
+  name: guri-portfolio-deployment
 spec:
-  type: LoadBalancer
+  replicas: 2
   selector:
-    app: guri-portfolio
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 3000
+    matchLabels:
+      app: guri-portfolio
+  template:
+    metadata:
+      labels:
+        app: guri-portfolio
+    spec:
+      containers:
+      - name: guri-portfolio
+        image: gcr.io/guri-tuesday-09-07/guri-portfolio:v1
+        ports:
+        - containerPort: 3000
+      imagePullSecrets:
+      - name: gcr-json-key

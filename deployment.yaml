@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: guri-portfolio
-        image: gcr.io/sunday-kubernetes/guri-portfolio:v1
+        image: gcr.io/guri-tuesday-09-07/guri-portfolio:v1
         ports:
         - containerPort: 3000
       imagePullSecrets:

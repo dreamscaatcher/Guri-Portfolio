@@ -1,12 +1,13 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/guri-portfolio:$COMMIT_SHA', '.']
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/guri-portfolio:$COMMIT_SHA']
-- name: 'gcr.io/cloud-builders/kubectl'
-  args: ['set', 'image', 'deployment/guri-portfolio', 'guri-portfolio=gcr.io/$PROJECT_ID/guri-portfolio:$COMMIT_SHA']
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=gke-cluster'
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/guri-tuesday-09-07/guri-portfolio:v1', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/guri-tuesday-09-07/guri-portfolio:v1']
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['apply', '-f', 'deployment.yaml']
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['apply', '-f', 'service.yaml']
+images:
+  - 'gcr.io/guri-tuesday-09-07/guri-portfolio:v1'
 options:
   logging: CLOUD_LOGGING_ONLY
